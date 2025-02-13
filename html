@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Facts</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            background: white;
+        }
+
+        #factButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        #factButton:hover {
+            background-color: #0056b3;
+        }
+
+        .fact-display {
+            margin-top: 20px;
+            padding: 20px;
+            min-height: 50px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="factButton">Generate Moon Fact</button>
+        <div id="factDisplay" class="fact-display"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const facts = [
+                "The Moon is Earth's only natural satellite.",
+                "The Moon is about 1/6th the gravity of Earth.",
+                "The Moon is about 384,400 km away from Earth.",
+                "The Moon orbits the Earth every 27.3 days.",
+                "The same side of the Moon always faces Earth due to synchronous rotation.",
+                "The Moon's surface is covered with craters, rocks, and dust.",
+                "The Moon has no atmosphere, which means there is no weather.",
+                "The Moon's temperature ranges from extremely hot to extremely cold, from 127°C during the day to -173°C at night.",
+                "The Moon has phases that change as it orbits Earth, which are visible from Earth.",
+                "The Moon has been visited by humans during the NASA Apollo missions from 1969 to 1972."
+            ];
+
+            const factButton = document.getElementById('factButton');
+            const factDisplay = document.getElementById('factDisplay');
+
+            factButton.addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.style.opacity = 0;
+                setTimeout(() => {
+                    factDisplay.style.opacity = 1;
+                }, 10); // Trigger the opacity transition
+            });
+        });
+    </script>
+</body>
+</html>
